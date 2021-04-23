@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { items } = await client.getEntries({
     content_type: 'article',
     'fields.slug': params.slug

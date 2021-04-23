@@ -31,7 +31,7 @@ const BlogNavbar: React.FC<{
   return (
     <div className="flex flex-col justify-between min-h-full">
       <div className="flex justify-between">
-        <h3 className="text-3xl font-medium tracking-wider text-purple font-kaushan">
+        <h3 className="text-3xl font-medium tracking-wider text-purple font-kaushan dark:text-subtext">
           Blog
         </h3>
         {theme === 'light' ? (

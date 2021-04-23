@@ -25,7 +25,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Home = ({ article }) => {
   const [articles, setArticles] = useState(article)
-  const [active, setActive] = useState('all')
+  const [active, setActive] = useState('dog')
 
   const handlerFilterCategory = (category: Category) => {
     if (category === 'dog') {

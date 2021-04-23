@@ -26,7 +26,7 @@ const BlogCard: React.FC<{ item: IFields }> = ({ item }) => {
       <p className="my-2 text-center">{item.fields.title}</p>
 
       {showDetail && (
-        <div className="absolute top-0 left-0 z-10 grid w-full h-auto p-2 text-black bg-blue md:grid-cols-2 gap-x-12 dark:text-white dark:bg-black">
+        <div className="absolute top-0 left-0 z-10 grid w-full h-full p-2 text-black bg-blue md:grid-cols-2 gap-x-12 dark:text-white dark:bg-black">
           <Image
             className="object-contain"
             src={'https:' + item.fields.thumbnail.fields.file.url}
