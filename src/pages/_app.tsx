@@ -1,7 +1,10 @@
-import React from 'react';
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
+import React from 'react'
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+
+import { ThemeProvider } from 'next-themes'
+import Sidebar from '../components/BlogNavbar'
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactNode {
   return (
@@ -10,9 +13,11 @@ function MyApp({ Component, pageProps }: AppProps): React.ReactNode {
         <title>My App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider attribute="class">
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

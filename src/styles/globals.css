@@ -4,3 +4,8 @@
 /* Your own custom component styles */
 
 @import 'tailwindcss/utilities';
+
+body {
+  font-family: sans-serif;
+  color: #354358;
+}
