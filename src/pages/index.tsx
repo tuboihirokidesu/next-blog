@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-import { createClient } from 'contentful'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { createClient, EntryCollection } from 'contentful'
+import { InferGetStaticPropsType, NextPage } from 'next'
 import BlogCard from '../components/BlogCard'
 import Sidebar from '../components/BlogNavbar'
-import { Category } from '../../types'
+import { Category, IArticle, IFields, ISys } from '../../types'
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY
   })
 
-  const response = await client.getEntries({ content_type: 'article' })
+  const response: EntryCollection<IFields> = await client.getEntries({
+    content_type: 'article'
+  })
 
   return {
     props: {
@@ -23,7 +25,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Home = ({ article }) => {
+const Home: NextPage<Props> = ({ article }) => {
   const [articles, setArticles] = useState(article)
   const [active, setActive] = useState('dog')
 
@@ -60,7 +62,7 @@ const Home = ({ article }) => {
                 key={item.sys.id}
                 className="col-span-12 p-2 bg-gray-200 rounded-lg sm:col-span-6 lg:col-span-4 dark:bg-dark-200"
               >
-                <BlogCard item={item} key={item.name} />
+                <BlogCard item={item} />
               </div>
             ))}
           </div>

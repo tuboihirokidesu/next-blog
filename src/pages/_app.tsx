@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import { ThemeProvider } from 'next-themes'
-import Sidebar from '../components/BlogNavbar'
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactNode {
   return (

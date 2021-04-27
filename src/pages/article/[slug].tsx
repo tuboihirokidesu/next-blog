@@ -3,9 +3,9 @@ import { createClient, EntryCollection } from 'contentful'
 import Layout from '../../components/Layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths, InferGetStaticPropsType, NextPage } from 'next'
 import moment from 'moment'
-import { IResponse, IArticle } from '../../../types'
+import { IResponse, IFields } from '../../../types'
 import Image from 'next/image'
 
 const client = createClient({
@@ -30,8 +30,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { items } = await client.getEntries({
+export const getStaticProps = async ({ params }) => {
+  const { items } = await client.getEntries<IFields>({
     content_type: 'article',
     'fields.slug': params.slug
   })
@@ -50,11 +50,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-const Article: React.FC<IArticle> = ({ article }) => {
+type Props = InferGetStaticPropsType<typeof getStaticProps>
+
+const Article: NextPage<Props> = ({ article }) => {
   console.log(article.fields.content)
 
   return (
-    <div className="flex items-center justify-center ">
+    <div className="flex items-center justify-center w-full ">
       <Layout title={article.fields.title}></Layout>
       <div>
         <div className="flex justify-between">

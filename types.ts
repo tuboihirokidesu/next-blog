@@ -3,19 +3,21 @@ export interface IResponse {
 }
 
 export interface IArticle {
-  article: IFields
+  field: IFields
+  sys: ISys
 }
 
 export interface IFields {
-  fields: {
-    title: string
-    slug: string
-    description: string
-    date: Date
-    thumbnail: IImage
-    content: any
-    type: string[]
-  }
+  title: string
+  slug: string
+  description: string
+  date: Date
+  thumbnail: IImage
+  content: any
+  type: string[]
+}
+export interface ISys {
+  id: string
 }
 
 interface IImage {

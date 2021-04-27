@@ -40,7 +40,7 @@ const BlogNavbar: React.FC<{
           <MoonIcon className="h-8" />
         )}
       </div>
-      <div className="flex flex-col py-6 space-x-3 overflow-x-auto list-none">
+      <div className="flex flex-col py-6 space-x-3 space-y-3 overflow-x-auto list-none">
         <NavItem value="dog" {...props} />
         <NavItem value="Border Collie" {...props} />
         <NavItem value="bulldog" {...props} />

@@ -5,7 +5,8 @@
 
 @import 'tailwindcss/utilities';
 
-body {
-  font-family: sans-serif;
-  color: #354358;
+@layer components {
+  .link {
+    @apply cursor-pointer hover:underline;
+  }
 }
