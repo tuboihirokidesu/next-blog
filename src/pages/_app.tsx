@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps): React.ReactNode {
   return (
     <>
       <Head>
-        <title>My App</title>
+        <title>Next Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider attribute="class">
