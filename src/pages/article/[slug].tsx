@@ -53,8 +53,6 @@ export const getStaticProps = async ({ params }) => {
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Article: NextPage<Props> = ({ article }) => {
-  console.log(article.fields.content)
-
   return (
     <div className="flex items-center justify-center w-full ">
       <Layout title={article.fields.title}></Layout>
