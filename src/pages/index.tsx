@@ -4,7 +4,7 @@ import { createClient, EntryCollection } from 'contentful'
 import { InferGetStaticPropsType, NextPage } from 'next'
 import BlogCard from '../components/BlogCard'
 import Sidebar from '../components/BlogNavbar'
-import { Category, IArticle, IFields, ISys } from '../../types'
+import { Category, IFields } from '../../types'
 
 export const getStaticProps = async () => {
   const client = createClient({
@@ -36,7 +36,6 @@ const Home: NextPage<Props> = ({ article }) => {
       return
     }
     const newArray = article.filter(item => item.fields.type.includes(category))
-    console.log(newArray)
 
     setArticles(newArray)
     setActive(category)

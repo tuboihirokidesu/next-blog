@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { IFields } from '../../types'
-import { MdClose } from 'react-icons/md'
-
+import { XIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NextPage } from 'next'
@@ -55,7 +54,7 @@ const BlogCard: NextPage<{ item: Entry<IFields> }> = ({ item }) => {
             onClick={() => setShowDetail(false)}
             className="absolute p-1 bg-gray-200 rounded-full top-3 right-3 focus:outline-none dark:bg-dark-200"
           >
-            <MdClose size={30} />
+            <XIcon className="h-8" />
           </button>
         </div>
       )}
